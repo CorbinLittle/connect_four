@@ -35,7 +35,7 @@ impl Board {
         }
     }
     fn make_move(&mut self, move_number: u32) -> bool{
-        if move_number >0 || move_number <= 7{
+        if move_number >0 && move_number <= 7{
             let move_column = self.board.iter().enumerate().filter(|x| if (move_number) % 7 > 0{(x.0 + 1) % 7 == (move_number) as usize} else{(x.0 + 1) % 7 == 0}).map(|x| x.1);
             let mut first_empty_slot: Option<u32> = None;
             for i in move_column.rev().enumerate(){
